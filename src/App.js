@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import dayjs from 'dayjs'
-import { useSpring, animated } from 'react-spring'
 import { currentYearSolarTermsData, solarTermsDescData } from "./lib/data";
 import Scroll from 'react-scroll'
 
@@ -9,37 +8,28 @@ const Element  = Scroll.Element;
 const scroller = Scroll.scroller;
 
 function SolarTermItem(props) {
-  const [animatedStyle, setAnimatedStyle, stopAnimatedStyle] = useSpring(() => ({}))
-
   const handleClick = () => {
     props.onClick && props.onClick(props.index);
-    // setAnimatedStyle({
-    //   height: 210.4
-    // })
   };
 
   return (
-    <animated.div
-      style={animatedStyle}
+    <Element
+      name={`solar-term-item-${props.index}`}
+      className={[
+        "solar-term-item",
+        props.selectedIndex === props.index ? "active" : undefined,
+      ].join(' ')}
+      style={{
+        backgroundImage: `url(${require(`./assets/${props.index}.jpg`)})`,
+      }}
+      onClick={handleClick}
     >
-      <Element
-        name={`solar-term-item-${props.index}`}
-        className={[
-          "solar-term-item",
-          props.selectedIndex === props.index ? "active" : undefined,
-        ].join(' ')}
-        style={{
-          backgroundImage: `url(${require(`./assets/${props.index}.jpg`)})`,
-        }}
-        onClick={handleClick}
-      >
-        <div className="name">{props.detail.name}</div>
-        <div className="content">
-          <div className="date">{props.detail.date}</div>
-          <div className="desc">{props.desc}</div>
-        </div>
-      </Element>
-    </animated.div>
+      <div className="name">{props.detail.name}</div>
+      <div className="content">
+        <div className="date">{props.detail.date}</div>
+        <div className="desc">{props.desc}</div>
+      </div>
+    </Element>
   );
 }
 
