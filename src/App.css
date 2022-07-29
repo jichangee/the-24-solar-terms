@@ -25,14 +25,14 @@
 .solar-term-item .desc {
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   max-height: 44px;
-  transition: all 300ms;
+  transition: all 1000ms;
 }
-
+.solar-term-item.active {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 16px rgb(0, 0, 0, 1);
+}
 .solar-term-item.active .desc {
-  display: block;
-  max-height: 200px;
+  max-height: 300px;
 }
