@@ -7,6 +7,33 @@ import Scroll from 'react-scroll'
 const Element  = Scroll.Element;
 const scroller = Scroll.scroller;
 
+const picList = [
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/0_ruffbt_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/1_j7qt85_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/2_rgikbc_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/3_a8x7sx_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/4_npxswk_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/5_9pny3n_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/6_va6cvx_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/7_wzfd6i_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/8_i26g6w_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/9_ampxpw_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/10_622vu4_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/11_0wermv_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/12_nkn2i7_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/13_7yy06r_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/14_aboq2c_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/15_y06oji_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/16_gjiu8i_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/17_fl9a2b_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/18_0eewc0_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/19_j10fjj_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/20_ce5onw_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/21_ibwygo_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/22_yzpbwj_.jpeg?raw=true',
+  'https://cdn.jsdelivr.net/gh/jichangee/gallery@master/the-24-solar-terms/23_skzi8z_.jpeg?raw=true',
+]
+
 function SolarTermItem(props) {
   const handleClick = () => {
     props.onClick && props.onClick(props.index);
@@ -20,7 +47,7 @@ function SolarTermItem(props) {
         props.selectedIndex === props.index ? "active" : undefined,
       ].join(' ')}
       style={{
-        backgroundImage: `url(${require(`./assets/${props.index}.jpg`)})`,
+        backgroundImage: `url(${picList[props.index]})`,
       }}
       onClick={handleClick}
     >
