@@ -81,7 +81,8 @@ function App() {
   }
 
   useEffect(() => {
-    const index = getNearSolarTermsIndex()
+    let index = getNearSolarTermsIndex()
+    index = index === 0 ? currentYearSolarTermsData.length -1 : index - 1
     setSelectedIndex(index)
   }, [])
 
